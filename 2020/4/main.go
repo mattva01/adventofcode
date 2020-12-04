@@ -80,6 +80,10 @@ func readInput(path string) ([]passport, error) {
 		var pass passport
 		pass = make(map[string]string)
 		line := scanner.Text()
+		line = strings.TrimSpace(line)
+		if len(line) == 0 {
+			continue
+		}
 		line = strings.Replace(line, "\n", " ", -1)
 
 		for _, thing := range strings.Split(line, " ") {
